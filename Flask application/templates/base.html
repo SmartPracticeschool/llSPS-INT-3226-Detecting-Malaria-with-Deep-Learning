@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <title>Malaria Detector WEB</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="icon" href="data:image/png;base64,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">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <style>
+	.bg-dark {
+		background-color: #42678c!important;
+	}
+	#result {
+		color: #0a1c4ed1;
+	}
+	*{
+  box-sizing: border-box;
+    }
+    .column {
+          float: left;
+          width: 33.33%;
+          padding: 10px;
+          height: 160px;
+        }
+
+    .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+	</style>
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <div class="w3-top">
+      <div class="w3-bar w3-black" >
+        <span class="branding w3-bar-item w3-mobile" style="color:red; padding-left:150px; font-family:Orbitron; font-size:25px;">Malaria Detector.com</span>
+        <span class="w3-right w3-mobile" style="margin-top:20px;padding-right:50px;" >
+          <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="#" style="padding-right:60px;">Home</a>
+          <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="#about" style="padding-right:60px;">About</a>
+          <a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="#contact" style="padding-right:60px;">Contact</a>
+        </span>
+      </div>
+    </div>
+
+    <!-- SHOWCASE -->
+    <section class="showcase" style="background-image:url('static/img/mos.png'); width: 100%; height: 650px;  background-repeat: no-repeat;background-size: cover;padding-top:100px;">
+      <div class="w3-container w3-center">
+        <h1 class="w3-text-shadow w3-animate-opacity"> WELCOME !!!  </h1>
+        <hr>
+        <p class="w3-animate-opacity" style="font-family:Bangers; font-size:30px">Here you can upload the Microscopic images of your samples </p>
+  
+  
+  <form action = "http://localhost:5000/predict"  id="upload-file" method="post" enctype="multipart/form-data">
+				
+				<label for="imageUpload" class="w3-button w3-red w3-large " style="position:static;">
+					Choose...
+					
+				</label>
+				<input type="file" name="image" id="imageUpload" accept=".png, .jpg, .jpeg" >
+			</form>
+ <div class="w3-container ">
+        <div id="content" style="margin-top:2em">
+		<div class="container">
+		  <div class="row">
+			<div>
+	
+			<div>
+				<div>
+				
+		</div>
+			<div class="image-section" style="display:none;">
+				<div class="img-preview" style="margin-left:440px">
+					<div id="imagePreview">
+					
+					</div>
+				</div>
+				<div>
+					<button type="button" class="btn btn-info btn-lg " id="btn-predict" style="margin-left:440px">Predict...!!!</button>
+				</div>
+				
+			</div>
+			<div class="loader" style="margin-left:500px"></div>
+
+			<h3>
+				<span id="result" style="padding-left:380px; font-family:Bebas Neue;font-size:40px;color:red;"> </span>
+    			</h3>
+
+			
+			</div>
+			 
+		  </div>
+		</div>
+		</div>
+    </div>
+    </section>
+     <p id="about"></p>
+
+    <!-- SECTION 1 -->
+    <section class="section w3-blue w3-hover-opacity">
+      <div class="w3-container w3-center">
+        <i class=" w3-container fa fa-info-circle " ></i>
+        
+        <h2>About </h2>
+      
+           <p> Malaria remains a major burden on global health, with roughly 200 million cases worldwide and more than 400,000 deaths per year.
+         To improve diagnosis, image analysis software and machine learning methods have been used to quantify parasitemia in microscopic blood slides.</p>
+          <p>With this application we will be able to find if the person is affected by Malaria or not , by using the image of microscopic blood samples </p>
+          
+         
+      </div>
+    </section>
+   
+
+   
+
+    <!-- ABOUT -->
+    <section  class="section">
+      <div class="w3-container">
+        <div class="w3-row-padding">
+          <div class="w3-col m5">
+            <img src="https://www.southindiagroup.com/assets/images/msp2.gif">
+          </div>
+          <div class="w3-col m7">
+            <button onclick="accFunction('what')" class="w3-btn-block w3-left-align">
+            <b>Causes</b>
+            </button>
+
+            <div id="what" class="w3-container">
+              <p>Malaria is caused by the Plasmodium parasite. The parasite can be spread to humans through the bites of infected mosquitoes.
+
+There are many different types of plasmodium parasite, but only 5 types cause malaria in humans.</p>
+            </div>
+
+            <button onclick="accFunction('who')" class="w3-btn-block w3-left-align">
+           <b> Symptoms </b></button>
+
+            <div id="who" class="w3-container w3-hide">
+             
+              <p>– Fever that runs high for 2-3 days</p>
+              <p>– Unbearable headaches</p>
+              <p>– Muscle pain and inability to do physical tasks</p>
+              <p>– Heavy sweating at times</p>
+              <p>– Non-stop dry cough</p>
+           </div>
+
+            <button onclick="accFunction('where')" class="w3-btn-block w3-left-align">
+           <b> Prevention </b></button>
+
+            <div id="where" class="w3-container w3-hide">
+              <p>Malaria can often be avoided using the ABCD approach to prevention, which stands for:</p>
+
+            <p>Awareness of risk – find out whether you're at risk of getting malaria.</p>
+            <p>Bite prevention – avoid mosquito bites by using insect repellent, covering your arms and legs, and using a mosquito net.</p>
+            <p>Check whether you need to take malaria prevention tablets – if you do, make sure you take the right antimalarial tablets at the right dose, and finish the course.</p>
+            <p>Diagnosis – seek immediate medical advice if you have malaria symptoms, including up to a year after you return from travelling.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  
+    <!-- CONTACT HEADING -->
+    <section id="contact" class="section w3-dark-grey w3-hover-opacity">
+      <div class="w3-container w3-center">
+        <h1 class="w3-text-shadow">GET IN TOUCH</h1>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section">
+      <div class="w3-container">
+        <div class="w3-card-4">
+          <div class="w3-container w3-dark-grey">
+            <h2>Contact Us</h2>
+          </div>
+            <form class="w3-container w3-padding-xlarge">
+            <div class="row">
+  <div class="column" style="background-color:#aaa;">
+    <h3>Name : Sourav R </h3>
+    <p>Mail : off.sourav@gmail.com </p>
+     <p>Contact : 8248577262 </p>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+    <h3>Name : Jeeva K </h3>
+    <p>Mail    : jeeva1212k@gmail.com </p>
+    <p>Contact : 8608781628 </p>
+  </div>
+  <div class="column" style="background-color:#ccc;">
+    <h3>Name : Aravind B S </h3>
+    <p>Mail : aravindsri660@gmail.com </p>
+     <p>Contact : 9080086584 </p>
+  </div>
+</div>
+            </form>
+          </div>
+      </div>
+    </section>
+
+    <script>
+      function accFunction(id) {
+          var x = document.getElementById(id);
+          if (x.className.indexOf("w3-show") == -1) {
+              x.className += " w3-show";
+          } else {
+              x.className = x.className.replace(" w3-show", "");
+          }
+      }
+      </script>
+  </body>
+  <footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>    
+</footer>
+</html>
